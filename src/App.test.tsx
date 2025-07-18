@@ -4,19 +4,13 @@ import React from 'react';
 import App from './App';
 
 describe('App', () => {
-  it('renders the main heading', () => {
+  it('renders game heading', () => {
     render(<App />);
-    expect(screen.getByText('React TypeScript Template')).toBeInTheDocument();
+    expect(screen.getByText('Speed Game')).toBeInTheDocument();
   });
 
-  it('renders the description', () => {
+  it('shows 5 cards in player hand', () => {
     render(<App />);
-    expect(screen.getByText(/A modern web application template/)).toBeInTheDocument();
-  });
-
-  it('renders the action buttons', () => {
-    render(<App />);
-    expect(screen.getByText('Get Started')).toBeInTheDocument();
-    expect(screen.getByText('Learn More')).toBeInTheDocument();
+    expect(screen.getAllByTestId('player-card')).toHaveLength(5);
   });
 });
